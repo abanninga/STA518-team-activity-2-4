@@ -24,11 +24,13 @@ my_gm <- gapminder
 ### Exercise 1
 
 ```{r gdp-lifeExp-canvas, message = FALSE}
-p <- ggplot(data = my_gm, aes(x = gdpPercap, y = lifeExp))
+p <- ggplot(data = my_gm, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(data = my_gm, mapping = aes(x=gdpPercap, y=lifeExp))
+
+p
 ```
 
-(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
+This data appears to be following a non-linear model, maybe a quadratic model. This would make modelling it as a linear model dangerous and maybe not the best option for explaining variability in the data.
 
 ### Exercise 2
 
