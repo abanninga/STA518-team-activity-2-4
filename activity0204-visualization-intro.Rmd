@@ -16,7 +16,7 @@ library(gapminder)
 
 ### Load data
 
-```{r load-packages, message=FALSE}
+```{r load-packages2, message=FALSE}
 my_gm <- gapminder
 ```
 
@@ -34,8 +34,28 @@ This data appears to be following a non-linear model, maybe a quadratic model. T
 
 ### Exercise 2
 
-(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
+```{r logx}
+q <- ggplot(data = my_gm, aes(x = log10(gdpPercap), y = lifeExp)) +
+  geom_point(data = my_gm, mapping = aes(x=log10(gdpPercap), y=lifeExp))
+
+q
+```
+
+```{r logaxis}
+s <- ggplot(data = my_gm, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(data = my_gm, mapping = aes(x=gdpPercap, y=lifeExp)) +
+  scale_x_log10()
+
+s
+```
+
+Altering the axis is the better option in this case because it involves less code and also doesn't transform the data at all.
+
+```{r}
+p <- ggplot(data = my_gm, aes(x = gdpPercap, y = lifeExp)) +
+  scale_x_log10()
+```
+
 
 ### Exercise 3
 
