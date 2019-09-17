@@ -1,7 +1,7 @@
 ---
 title: "Activity 2.4 - Exploratory Data Analysis: Data Visualizations - Introduction"
-author: "INSERT TEAM NAME HERE"
-date: "INSERT TODAY'S DATE HERE"
+author: "Purple"
+date: "9/17/19"
 output: 
   html_document: 
     keep_md: yes
