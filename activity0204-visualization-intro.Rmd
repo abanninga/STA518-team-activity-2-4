@@ -130,4 +130,4 @@ ggplot(my_gm, aes(x = reorder(continent, continent, length))) +
   geom_bar() +
   coord_flip()
 ```
-
+#note
