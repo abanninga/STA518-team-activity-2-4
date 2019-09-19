@@ -61,7 +61,7 @@ p <- ggplot(data = my_gm, aes(x = gdpPercap, y = lifeExp)) +
 
 1.) Alpha changes the transparency of the data points to help show overlapping data.
 2.) 
-3.)
+3.) Shows the points separated by continent via different colors.
 ```{r}
 p + geom_point(alpha = (1/3), size = 3)
 p + geom_point() + 
