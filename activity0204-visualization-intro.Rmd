@@ -114,4 +114,20 @@ The graph looks the same regardless of if geom_point or geom_jitter is used.
 
 ### Exercise 7
 
-...
+``` {r seven}
+ggplot(my_gm, aes(x = lifeExp, fill = continent)) +
+  geom_histogram(position = "identity")
+```
+
+"Americas" is hidden behind the other continents. position=identity means that each continent will fully cover the other groups, without it the color would be transparent.
+
+### Exercise 9
+``` {r nine}
+my_gm %>%
+  group_by(continent) %>%
+  summarise(continent_freq = n_distinct(country))
+ggplot(my_gm, aes(x = reorder(continent, continent, length))) + 
+  geom_bar() +
+  coord_flip()
+```
+
