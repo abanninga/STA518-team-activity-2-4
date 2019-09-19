@@ -110,7 +110,7 @@ ggplot(my_gm, aes(x = continent, y = lifeExp)) +
   geom_point(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-The graph looks the same regardless of if geom_point or geom_jitter is used.
+The graph looks the same regardless of if geom_point or geom_jitter is used. Making the height argument other than 0 would minimize the relative differences between the innerquartile ranges, making in turn the plot more difficult to interpret.
 
 ### Exercise 7
 
