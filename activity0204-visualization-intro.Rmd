@@ -59,8 +59,17 @@ p <- ggplot(data = my_gm, aes(x = gdpPercap, y = lifeExp)) +
 
 ### Exercise 3
 
-(Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
+1.) Alpha changes the transparency of the data points to help show overlapping data.
+2.) 
+3.)
+```{r}
+p + geom_point(alpha = (1/3), size = 3)
+p + geom_point() + 
+  geom_smooth(lwd = 3, se = FALSE, method = "lm")
+p + aes(color = continent) + 
+  geom_point() + 
+  geom_smooth(lwd = 3, se = FALSE)
+```
 
 ### Exercise 4
 
