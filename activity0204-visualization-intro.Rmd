@@ -83,11 +83,34 @@ p + geom_point() +
 
 ### Exercise 5
 
-...
+``` {r five}
+ggplot(my_gm, aes(x = year, y = lifeExp, color = continent)) +
+  facet_wrap(~ continent, scales = "free_x") +
+  geom_jitter(alpha = 1/3, size = 3) +
+  scale_color_manual(values = continent_colors)
+
+my_gm %>% 
+  filter(continent != "Oceania") %>% 
+  ggplot(aes(x = year, y = lifeExp, group = country, color = country)) + geom_line(lwd = 1, show.legend = FALSE) + facet_wrap(~ continent) + scale_color_manual(values = country_colors)
+
+ggplot(my_gm, aes(x = year, y = lifeExp, color = continent)) +
+  facet_wrap(~ continent, scales = "free_x") +
+  geom_jitter(alpha = 1/3, size = 3) +
+  scale_color_manual(values = continent_colors) +
+  geom_smooth(lwd = 2)
+```
+
+geom_jitter in the first and third plots make it a scatter plot, and geom_smoth adds a line. geom_line in the second plot make Life Expectancy plotted over time, divided by country, shown by individual lines.
 
 ### Exercise 6
 
-...
+``` {r six}
+ggplot(my_gm, aes(x = continent, y = lifeExp)) +
+  geom_boxplot(outlier.colour = "hotpink") +
+  geom_point(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
+```
+
+The graph looks the same regardless of if geom_point or geom_jitter is used.
 
 ### Exercise 7
 
