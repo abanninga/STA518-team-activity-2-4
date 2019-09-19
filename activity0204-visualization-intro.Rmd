@@ -121,6 +121,18 @@ ggplot(my_gm, aes(x = lifeExp, fill = continent)) +
 
 "Americas" is hidden behind the other continents. position=identity means that each continent will fully cover the other groups, without it the color would be transparent.
 
+### Exercise 8
+### Exercise 8
+1.) facet_wrap makes separate graphs for each continent.
+2.) facet-grid(continent ~ .) Makes separate graphs for each continent with their densities on the y-axis.
+3.) facet_grid(. ~ continent) Similar output to the code above, but the contintent densities curves are elongated.
+```{r}
+ggplot(subset(my_gm, continent != "Oceania"), aes(x = lifeExp, fill = continent)) +
+  geom_density(alpha = 0.2) +
+  facet_grid(. ~ continent)
+ 
+```
+
 ### Exercise 9
 ``` {r nine}
 my_gm %>%
