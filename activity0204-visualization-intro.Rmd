@@ -54,8 +54,6 @@ Altering the axis is the better option in this case because it involves less cod
 ```{r}
 p <- ggplot(data = my_gm, aes(x = gdpPercap, y = lifeExp)) +
   scale_x_log10()
-
-p
 ```
 
 
@@ -137,9 +135,21 @@ ggplot(subset(my_gm, continent != "Oceania"), aes(x = lifeExp, fill = continent)
 ``` {r nine}
 my_gm %>%
   group_by(continent) %>%
-  summarise(continent_freq = n_distinct(country))
+  summarise(continent_freq = n())
 ggplot(my_gm, aes(x = reorder(continent, continent, length))) + 
   geom_bar() +
   coord_flip()
 ```
-#note
+
+# Exercise 10
+
+```{r}
+m <- my_gm %>%
+  group_by(continent) %>%
+  summarise(continent_freq = n())
+
+ggplot() + 
+  geom_bar(data = m, mapping = aes(x=continent, y=continent_freq),stat = "identity") +
+  coord_flip()
+```
+
